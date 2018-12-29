@@ -1,3 +1,6 @@
+from validations.isdigit import is_number
+from validations.isemail import emailAddress
+
 
 class fakeID:
     def __init__(self):
@@ -7,13 +10,34 @@ class fakeID:
         self.email = self.setemail()
 
     def setname(self):
-        return input("Enter name: ")
+        while True:
+            n = input("Enter name: ")
+            if str.isupper(n[0]):
+                return n
+            else:
+                print("Name should start with capital letter")
+
 
     def setsurename(self):
-        return input("Enter surname: ")
+        while True:
+            s = input("Enter surname: ")
+            if str.isupper(s[0]):
+                return s
+            else:
+                print("Surname should start with capital letter")
 
     def setpesel(self):
-        return input("Enter pesel: ")
+        while True:
+            p = input("Enter pesel: ")
+            if is_number(p) and len(p) == 11:
+                return p
+            else:
+                print("Pesel should cantain eleven numbers")
 
     def setemail(self):
-        return input("Enter email: ")
+        while True:
+            e = input("Enter email: ")
+            if emailAddress(e):
+                return e
+            else:
+                print("Wrong email, example: name@name.com")
