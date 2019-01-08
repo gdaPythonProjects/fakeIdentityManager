@@ -9,7 +9,7 @@ class fakeidgen:
         self.pesel = self.setpesel()
         self.email = self.setemail()
 
-        print(self.name, self.surName)
+        print(self.name, self.surName, self.pesel)
 
     def setname(self, gender):
         if gender == 1:
@@ -32,7 +32,10 @@ class fakeidgen:
         return name
 
     def setpesel(self):
-        pass
+        value = ""
+        for i in range(0, 11):
+            value = value + str(random.randint(0, 9))
+        return value
 
     def setemail(self):
         pass
