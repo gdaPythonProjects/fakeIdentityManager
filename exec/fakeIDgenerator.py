@@ -1,5 +1,6 @@
 from exec.fakeID import fakeID
 import random
+import string
 import numpy as np
 
 class fakeidgen:
@@ -9,7 +10,7 @@ class fakeidgen:
         self.pesel = self.setpesel()
         self.email = self.setemail()
 
-        print(self.name, self.surName, self.pesel)
+        print(self.name, self.surName, self.pesel, self.email)
 
     def setname(self, gender):
         if gender == 1:
@@ -38,7 +39,12 @@ class fakeidgen:
         return value
 
     def setemail(self):
-        pass
+        value1 = ""
+        value2 = ""
+        for i in range(0, random.randint(5, 10)):
+            value1 = value1 + random.choice(string.ascii_lowercase)
+            value2 = value2 + random.choice(string.ascii_lowercase)
+        return value1 + "@" + value2 + ".com"
 
 
 
