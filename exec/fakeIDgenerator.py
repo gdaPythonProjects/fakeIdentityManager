@@ -25,6 +25,7 @@ class fakeidgen:
         name = arr[random.randint(0, len(arr))]
         return name
 
+
     def setsurename(self):
         with open('exec/surname.txt') as f:
             names = f.read().splitlines()
@@ -32,11 +33,13 @@ class fakeidgen:
         name = arr[random.randint(0, len(arr))]
         return name
 
+
     def setpesel(self):
         value = ""
         for i in range(0, 11):
             value = value + str(random.randint(0, 9))
         return value
+
 
     def setemail(self):
         value1 = ""
@@ -46,6 +49,17 @@ class fakeidgen:
             value2 = value2 + random.choice(string.ascii_lowercase)
         return value1 + "@" + value2 + ".com"
 
+    def getname(self):
+        return self.name
+
+    def getsurname(self):
+        return self.surName
+
+    def getpes(self):
+        return self.pesel
+
+    def getemail(self):
+        return self.email
 
 
 

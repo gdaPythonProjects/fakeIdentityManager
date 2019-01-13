@@ -41,3 +41,6 @@ class fakeID:
                 return e
             else:
                 print("Wrong email, example: name@name.com")
+
+    def getAll(self):
+        return self.name, self.surName, self.pesel, self.email
