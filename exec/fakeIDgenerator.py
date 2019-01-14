@@ -1,4 +1,3 @@
-from exec.fakeID import fakeID
 import random
 import string
 import numpy as np
@@ -6,14 +5,14 @@ import numpy as np
 class fakeidgen:
     def __init__(self, gender):
         self.name = self.setname(gender)
-        self.surName = self.setsurename()
+        self.surName = self.setsurename(gender)
         self.pesel = self.setpesel()
         self.email = self.setemail()
 
         print(self.name, self.surName, self.pesel, self.email)
 
     def setname(self, gender):
-        if gender == 1:
+        if gender == "1":
             with open('exec/name_f.txt') as f:
                 names = f.read().splitlines()
                 f.close()
@@ -25,14 +24,19 @@ class fakeidgen:
         name = arr[random.randint(0, len(arr))]
         return name
 
-
-    def setsurename(self):
+    def setsurename(self, gender):
         with open('exec/surname.txt') as f:
             names = f.read().splitlines()
         arr = np.asarray(names)
         name = arr[random.randint(0, len(arr))]
-        return name
-
+        if gender == "1":
+            suffix = "i"
+            if name.endswith(suffix):
+                name = name[:-1]
+                name = name + "a"
+            return name
+        else:
+            return name
 
     def setpesel(self):
         value = ""
