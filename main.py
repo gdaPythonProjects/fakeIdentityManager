@@ -18,7 +18,7 @@ if __name__ == '__main__':
         inputid(fakeidgen.getname(), fakeidgen.getsurname(), fakeidgen.getpes(), fakeidgen.getemail())
     elif cmdInput.uArgs == '3':
         showids()
-        op = int(input('1. delete row, \nanything: exit, \n:'))
+        op = input('1. delete row, \nanything: exit:')
         if op == '1':
             delid(int(input("please enter the line number to be deleted: ")))
         else:
